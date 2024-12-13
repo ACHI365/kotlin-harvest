@@ -1,0 +1,19 @@
+services:
+  react-server:
+    build:
+      context: ./react-server
+    ports:
+      - "3000:3000"
+
+  kotlin-server:
+    build:
+      context: ./kotlin-server
+    ports:
+      - "8080:8080"
+
+  theharvester:
+    build:
+      context: ./theHarvester
+    volumes:
+      - ./harvester-output:/app/output
+    command: tail -f /dev/null
